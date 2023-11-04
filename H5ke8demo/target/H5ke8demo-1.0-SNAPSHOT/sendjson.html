@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>发送json数据2</title>
+    </head>
+    <body>
+
+<input type="button" value="发送json数据哦" id="send-bin">
+        <script type="text/javascript">
+            let student={
+                name:"Alice",
+                age:20,
+                gender:"female",
+                tall:165.5
+            };
+
+            let  btn=document.querySelector("#send-bin");
+            btn.addEventListener("click",(event)=>{//点击
+                fetch("ProcessJson",{//给java,改的东西
+                    method:"post",
+                    body:JSON.stringify(student),//对象转化为JSON
+                    headers:new Headers({"content-type":"application/json"})
+                })
+                .then(response=>console.log(response.status));
+            });
+
+        </script>
+    </body>
+</html>
