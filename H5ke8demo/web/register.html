@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>注册</title>
+    </head>
+    <body>
+<form>
+    <p><label for="user">user</label>
+        <input typeof="text" id="user">
+    <span></span>
+    </p>
+    <p>
+        <button>注册</button>
+    </p>
+<script type="text/javascript">
+    let user_filed=document.querySelector("#user")
+    user_filed.addEventListener("blur",(event)=>{
+        let user=event.target.value;
+        fetch("check?user="+user)//数据加载URL后面
+        .then(response=>alert(response.status))//先发送响应头
+        .then((date=>alert(date)))
+    })
+</script>
+</form>
+    </body>
+</html>
